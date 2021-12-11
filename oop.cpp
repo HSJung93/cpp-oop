@@ -2,12 +2,39 @@
 
 using std::string;
 
+class AbstractEmployee {
+  virtual void AskForPromotion()=0;
+};
+
 class Employee {
 
-public:
+private:
   string Name;
   string Company;
   int Age;
+
+public:
+  void setName(string name){
+    Name = name;
+  }
+  string getName() {
+    return Name;
+  }
+
+  void setCompany(string company){
+    Company = company;
+  }
+  string getCompany() {
+    return Company;
+  }
+
+  void setAge(int age){
+    if (age >= 10)
+    Age = age;
+  }
+  int getAge() {
+    return Age;
+  }
 
   void IntroduceYourself(){
     std::cout << "Name - " << Name << std::endl;
