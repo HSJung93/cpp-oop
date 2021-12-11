@@ -6,7 +6,7 @@ class AbstractEmployee {
   virtual void AskForPromotion()=0;
 };
 
-class Employee {
+class Employee:AbstractEmployee {
 
 private:
   string Name;
@@ -48,20 +48,23 @@ public:
     Age = age;
   }
 
+  void AskForPromotion(){
+    if (Age > 30)
+      std::cout << Name << " got promoted!" << std::endl;
+    else
+      std::cout << Name << ", sorry NO promotion for you!" << std::endl;
+
+  }
+
 };
 
 int main()
 {
   Employee employee1 = Employee("Saldina", "YT-CodeBeauty", 25);
-  // employee1.Name = "Saldina";
-  // employee1.Company = "YT-CodeBeauty";
-  // employee1.Age = 25;
-  employee1.IntroduceYourself();
 
   Employee employee2 = Employee("John", "Amazon", 35);
-  // employee2.Name = "John";
-  // employee2.Company = "Amazon";
-  // employee2.Age = 35;
-  employee2.IntroduceYourself();
+
+  employee1.AskForPromotion();
+  employee2.AskForPromotion();
 
 }
